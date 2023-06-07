@@ -1,3 +1,7 @@
+# Patch meta
+*.orig
+*.rej
+
 # Prerequisites
 *.d
 
