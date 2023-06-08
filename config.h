@@ -16,7 +16,7 @@ static const char *fonts[]          = { "Ubuntu:size=10", "Font Awesome 6 Free S
 static const char dmenufont[]       = "Ubuntu:size=10";
 
 /* colors */
-static const char ia_fg[]       = "#FFFFF0";
+static const char ia_fg[]       = "#F0FFF0";
 static const char ia_bg[]       = "#1A1B26";
 static const char ia_border[]   = "#000000";
 static const char a_fg[]        = "#6CF7BF";
