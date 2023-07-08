@@ -12,8 +12,8 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;        /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Ubuntu:size=10", "Font Awesome 6 Free Solid:size=10" };
-static const char dmenufont[]       = "Ubuntu:size=10";
+static const char *fonts[]          = { "Ubuntu:size=14", "Font Awesome 6 Free Solid:size=14" };
+static const char dmenufont[]       = "Ubuntu:size=12";
 
 /* colors */
 static const char ia_fg[]       = "#F0FFF0";
@@ -38,10 +38,13 @@ static const Rule rules[] = {
 	 */
 	/* class                instance    title       tags mask     isfloating   monitor */
 	{ "steam",              NULL,       NULL,       1 << 8,       1,           -1 },
-	{ "firefox",            NULL,       NULL,       1 << 7,       1,           -1 },
+	{ "firefox",            NULL,       NULL,       1 << 7,       0,           -1 },
 	{ "TelegramDesktop",    NULL,       NULL,       1 << 6,       1,           -1 },
 	{ "Thunar",             NULL,       NULL,       0,            1,           -1 },
 	{ "mpv",                NULL,       NULL,       0,            1,           -1 },
+	{ "mpv",                NULL,       NULL,       0,            1,           -1 },
+	{ "viewnior",           NULL,       NULL,       0,            1,           -1 },
+	{ "libreoffice",        NULL,       NULL,       0,            1,           -1 },
 };
 
 /* layout(s) */
@@ -53,8 +56,8 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 static const Layout layouts[] = {
     /* first entry is default */
 	/* symbol     arrange function */
-	{ "><>",      NULL },
 	{ "[]=",      tile },
+	{ "><>",      NULL },
 	{ "[M]",      monocle },
 };
 
@@ -77,7 +80,7 @@ static const char *termcmd[]  = { "alacritty", NULL };
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_q,      spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_Tab,    focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
@@ -86,11 +89,11 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
+	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY|ShiftMask,             XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_c,      killclient,     {0} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
+	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
